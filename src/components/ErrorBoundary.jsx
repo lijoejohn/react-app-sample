@@ -4,7 +4,6 @@ class ErrorBoundary extends Component {
     state = {
         errorInfo: null,
     };
-    // Error caught - log info or do something with the error information
     componentDidCatch(error, errorInfo) {
         this.setState({
             ...this.state,
