@@ -6,7 +6,7 @@ const ImageAndPrice = ({ price, mainImage }) => {
     return (
         <div className="ImageAndPrice">
             <div className="image">
-                <img src={mainImage} alt="Property" />
+                <img src={mainImage} alt="Property" onError={({ currentTarget })=>currentTarget.src="/image-not-found.png"} />
             </div>
             <div className="price">£ {price}</div>
         </div>
