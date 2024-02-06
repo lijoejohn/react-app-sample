@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SortAndFilter.scss';
+import Dropdown from './Dropdown';
 
-const SortAndFilter = () => {
+import { priceOptions } from '../../constants';
+
+const SortAndFilter = ({ onChange, filters }) => {
     return (
         <div className="SortAndFilter">
-            {/*
-                TODO: add filters here...
-            */}
+            <h1>Filters</h1>
+            <Dropdown
+                options={priceOptions}
+                label="Min Price"
+                onChange={(value) => {
+                    onChange({ ...filters, minPrice: value });
+                }}
+            />
+            <Dropdown
+                options={priceOptions}
+                label="Max Price"
+                onChange={(value) => {
+                    onChange({ ...filters, maxPrice: value });
+                }}
+            />
+            <Dropdown
+                options={['Asc', 'Desc']}
+                label="Sort By Bedrooms"
+                onChange={(value) => {
+                    onChange({ ...filters, orderBy: value.toLowerCase(), sortBy: 'bedrooms' });
+                }}
+            />
         </div>
     );
 };
